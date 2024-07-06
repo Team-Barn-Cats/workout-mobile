@@ -1,0 +1,24 @@
+import { FlatList } from 'react-native';
+import { Avatar, ListItem } from 'react-native-elements';
+
+const FullBodyOptions = (props) => {
+    const renderDirectoryItem = ({ item: exercise }) => {
+        return (
+            <ListItem>
+                <Avatar source={exercise.image} rounded />
+                <ListItem.Content>
+                    <ListItem.Title>{exercise.name}</ListItem.Title>
+                </ListItem.Content>
+            </ListItem>
+        );
+    };
+    return (
+        <FlatList
+            data={props.exercises}
+            renderItem={renderDirectoryItem}
+            keyExtractor={(item) => item.id.toString()}
+        />
+    );
+};
+
+export default FullBodyOptions;
