@@ -4,7 +4,7 @@ import { Avatar, ListItem } from 'react-native-elements';
 const FullBodyOptions = (props) => {
     const renderDirectoryItem = ({ item: exercise }) => {
         return (
-            <ListItem>
+            <ListItem onPress={() => props.onPress(exercise.id)}>
                 <Avatar source={exercise.image} rounded />
                 <ListItem.Content>
                     <ListItem.Title>{exercise.name}</ListItem.Title>
