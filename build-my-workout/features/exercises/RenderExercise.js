@@ -1,3 +1,5 @@
+// Renders the information/details for an exercise
+
 // Compare to RenderCampsite in nucampsite
 
 import { Text, View } from "react-native";

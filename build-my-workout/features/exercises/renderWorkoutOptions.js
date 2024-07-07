@@ -1,32 +1,27 @@
+// Lists the initial 3 options on the homepage
+
 // Reference DirectoryScreen in nucampsite
 
-import { FlatList } from "react-native";
 import { Avatar, ListItem } from "react-native-elements";
-import { useState } from "react";
-import { EXERCISES } from "../features/exercises/exercises";
-import { View, Text } from "react-native";
-import { Card, CardTitle } from "react-native-elements";
+import { View } from "react-native";
+import { Text } from "react-native";
+
 
 const RenderWorkoutOptions = ({ navigation }) => {
   return (
     <View>
-      <Card onPress={() => navigation.navigate('FullBody')}>
-        <CardTitle>
-          <Text>Full Body</Text>
-        </CardTitle>
-      </Card>
-      <Card onPress={() => navigation.navigate('UpperBody')}>
-        <CardTitle>
-          <Text>Upper Body</Text>
-        </CardTitle>
-      </Card>
-      <Card onPress={() => navigation.navigate('LowerBody')}>
-        <CardTitle>
-          <Text>Lower Body</Text>
-        </CardTitle>
-      </Card>
+      <ListItem onPress={() => navigation.navigate("FullBody")}>
+        <Text>Full Body</Text>
+      </ListItem>
+      <ListItem onPress={() => navigation.navigate("UpperBody")}>
+        <Text>Upper Body</Text>
+      </ListItem>
+      <ListItem onPress={() => navigation.navigate("LowerBody")}>
+        <Text>Lower Body</Text>
+      </ListItem>
     </View>
   );
 };
 
 export default RenderWorkoutOptions;
+

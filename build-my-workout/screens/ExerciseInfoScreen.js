@@ -1,3 +1,5 @@
+// Displays the information from RenderExercise
+
 // Compare to CampsiteInfoScreen in nucampsite
 
 import RenderExercise from "../features/exercises/RenderExercise";

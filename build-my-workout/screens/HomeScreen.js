@@ -1,3 +1,5 @@
+// Home screen. Will display a welcome message and three workout options
+
 import { EXERCISES } from "../features/exercises/exercises";
 import FullBodyOptions from "./FullBodyOptions";
 import { View, Platform } from "react-native";
@@ -10,9 +12,9 @@ import LowerBodyOptions from "./LowerBodyOptions";
 
 
 const ExerciseInfoNavigator = () => {
-  const Stack = createStackNavigator();
+  const HomeStack = createStackNavigator();
   return (
-    <Stack.Navigator
+    <HomeStack.Navigator
         initialRouteName='WorkoutOptions'
         screenOptions={{
             headerStyle: {
@@ -21,34 +23,34 @@ const ExerciseInfoNavigator = () => {
             headerTintColor: '#fff'
         }}
     >
-        <Stack.Screen
+        <HomeStack.Screen
             name='WorkoutOptions'
             component={RenderWorkoutOptions}
             options={{ title: 'Workout Options' }}
         />
-        <Stack.Screen
+        <HomeStack.Screen
             name='FullBody'
             component={FullBodyOptions}
             options={{ title: 'Full Body Options' }}
         />
-        <Stack.Screen
+        <HomeStack.Screen
             name='UpperBody'
             component={UpperBodyOptions}
             options={{ title: 'Upper Body Options' }}
         />
-        <Stack.Screen
+        <HomeStack.Screen
             name='LowerBody'
             component={LowerBodyOptions}
             options={{ title: 'Upper Body Options' }}
         />
-        <Stack.Screen
+        <HomeStack.Screen
             name='ExerciseInfo'
             component={ExerciseInfoScreen}
             options={({ route }) => ({
                 title: route.params.exercise.name
             })}
         />
-    </Stack.Navigator>
+    </HomeStack.Navigator>
 );
 };
 
