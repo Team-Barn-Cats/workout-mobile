@@ -1,8 +1,11 @@
-import RenderExercise from "../features/exercises/RenderExercise";
-const ExerciseInfoScreen = ({ route }) => {
-    const { exercise } = route.params;
+// Compare to CampsiteInfoScreen in nucampsite
 
-    return <RenderExercise exercise={exercise} />
+import RenderExercise from "../features/exercises/RenderExercise";
+
+const ExerciseInfoScreen = ({ route }) => {
+  const { exercise } = route.params;
+
+  return <RenderExercise exercise={exercise} />;
 };
 
 export default ExerciseInfoScreen;

@@ -1,14 +1,15 @@
-import { Platform, View } from "react-native";
-import Constants from "expo-constants";
-import ExerciseInfoScreen from "./ExerciseInfoScreen";
+/* import { EXERCISES } from "../features/exercises/exercises";
 import FullBodyOptions from "./FullBodyOptions";
+import { View, Platform } from "react-native";
+import ExerciseInfoScreen from "./ExerciseInfoScreen";
+import { Constants } from "expo-constants";
 import { createStackNavigator } from "@react-navigation/stack";
 
-const DirectoryNavigator = () => {
+const ExerciseInfoNavigator = () => {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator
-      initialRouteName="FullBody"
+      initialRouteName="ExerciseInfo"
       screenOptions={{
         headerStyle: {
           backgroundColor: "#5637DD",
@@ -19,7 +20,7 @@ const DirectoryNavigator = () => {
       <Stack.Screen
         name="FullBody"
         component={FullBodyOptions}
-        options={{ title: "Exercise Directory" }}
+        options={{ title: "Full Body Options" }}
       />
       <Stack.Screen
         name="ExerciseInfo"
@@ -34,15 +35,11 @@ const DirectoryNavigator = () => {
 
 const Main = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
-      }}
-    >
-      <DirectoryNavigator />
+    <View style={{ flex: 1 }}>
+      <ExerciseInfoNavigator />
     </View>
   );
 };
 
 export default Main;
+ */
