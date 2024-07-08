@@ -6,7 +6,7 @@ import { View, Platform } from "react-native";
 import ExerciseInfoScreen from "./ExerciseInfoScreen";
 import { Constants } from "expo-constants";
 import { createStackNavigator } from '@react-navigation/stack';
-import RenderWorkoutOptions from "../features/exercises/RenderWorkoutOptions";
+import RenderWorkoutOptions from "../features/exercises/renderWorkoutOptions";
 import UpperBodyOptions from "./UpperBodyOptions";
 import LowerBodyOptions from "./LowerBodyOptions";
 

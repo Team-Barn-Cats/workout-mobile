@@ -8,6 +8,17 @@ import { EXERCISES } from '../features/exercises/exercises';
 const FullBodyOptions = ({ navigation }) => {
     const [exercises, setExercises] = useState(EXERCISES);
 
+    if (exercises.isLoading) {
+        return <Loading />;
+    }
+    if (exercises.errMess) {
+        return (
+            <View>
+                <Text>{campsites.errMess}</Text>
+            </View>
+        );
+    }
+
     const renderExerciseItem = ({ item: exercise }) => {
         return (
             <ListItem onPress={() => navigation.navigate('ExerciseInfo', {exercise})}>
