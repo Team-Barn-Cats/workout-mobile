@@ -6,7 +6,7 @@ import { View, Platform } from "react-native";
 import ExerciseInfoScreen from "./ExerciseInfoScreen";
 import { Constants } from "expo-constants";
 import { createStackNavigator } from '@react-navigation/stack';
-import RenderWorkoutOptions from "../features/exercises/renderWorkoutOptions";
+import RenderWorkoutOptions from "../features/exercises/RenderWorkoutOptions";
 import UpperBodyOptions from "./UpperBodyOptions";
 import LowerBodyOptions from "./LowerBodyOptions";
 
@@ -41,7 +41,7 @@ const ExerciseInfoNavigator = () => {
         <HomeStack.Screen
             name='LowerBody'
             component={LowerBodyOptions}
-            options={{ title: 'Upper Body Options' }}
+            options={{ title: 'Lower Body Options' }}
         />
         <HomeStack.Screen
             name='ExerciseInfo'

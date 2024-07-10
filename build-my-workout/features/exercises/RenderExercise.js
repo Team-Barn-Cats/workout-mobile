@@ -2,25 +2,27 @@
 
 // Compare to RenderCampsite in nucampsite
 
-import { Text, View } from "react-native";
-import { Card } from "react-native-elements";
+import { Text, View, StyleSheet } from "react-native";
+import { Card, Icon } from "react-native-elements";
+import { useState } from "react";
 
-const RenderExercise = ({ exercise }) => {
+const RenderExercise = (props) => {
+  const { exercise } = props;
   if (exercise.isLoading) {
-        return <Loading />;
-    }
-    if (exercise.errMess) {
-        return (
-            <View>
-                <Text>{campsites.errMess}</Text>
-            </View>
-        );
-    }
-  
+    return <Loading />;
+  }
+  if (exercise.errMess) {
+    return (
+      <View>
+        <Text>{campsites.errMess}</Text>
+      </View>
+    );
+  }
+
   if (exercise) {
     return (
       <Card containerStyle={{ padding: 0 }}>
-        <Card.Image source={{ uri: exercise.image}}>
+        <Card.Image source={{ uri: exercise.image }}>
           <View style={{ justifyContent: "center", flex: 1 }}>
             <Text
               style={{
@@ -34,6 +36,18 @@ const RenderExercise = ({ exercise }) => {
           </View>
         </Card.Image>
         <Text style={{ margin: 20 }}>{exercise.description}</Text>
+        <Icon
+          name={props.isAdded ? "check" : "plus"}
+          type="font-awesome"
+          color="#f50"
+          raised
+          reverse
+          onPress={() =>
+            props.isAdded
+              ? console.log("Already added")
+              : props.markAdded()
+          }
+        />
       </Card>
     );
   }
