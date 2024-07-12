@@ -5,6 +5,8 @@
 import { Avatar, ListItem } from "react-native-elements";
 import { View } from "react-native";
 import { Text } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import UpperBodyOptions from "../../screens/UpperBodyOptions";
 
 
 const RenderWorkoutOptions = ({ navigation }) => {
