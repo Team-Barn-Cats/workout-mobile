@@ -111,7 +111,7 @@ const Main = () => {
         paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
       }}
     >
-      <DirectoryNavigator />
+      
       <ExercisesNavigator />
     </View>
   );

@@ -1,4 +1,4 @@
 
-const ipAddress = "192.168.1.50"
+const ipAddress = "";
 
-export const baseUrl = `http://192.168.1.50:3001/`;
+export const baseUrl = `http://${ipAddress}:3001/`;
