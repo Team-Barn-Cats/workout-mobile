@@ -9,6 +9,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RenderWorkoutOptions from "../features/exercises/RenderWorkoutOptions";
 import UpperBodyOptions from "./UpperBodyOptions";
 import LowerBodyOptions from "./LowerBodyOptions";
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchExercises } from "../features/exercises/exercisesSlice";
 
 
 const ExerciseInfoNavigator = () => {
@@ -55,7 +58,11 @@ const ExerciseInfoNavigator = () => {
 };
 
 const Home = () => {
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+      dispatch(fetchExercises());
+    }, [dispatch]);
 
   return (
     <View style={{ flex: 1}}>

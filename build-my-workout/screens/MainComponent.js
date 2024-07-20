@@ -4,48 +4,51 @@ import ExerciseInfoScreen from "./ExerciseInfoScreen";
 import FullBodyOptions from "./FullBodyOptions";
 import { createStackNavigator } from "@react-navigation/stack";
 import UpperBodyOptions from "./UpperBodyOptions";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchExercises } from "../features/exercises/exercisesSlice";
 
 const HomeScreenNavigator = () => {
   const HomeStack = createStackNavigator();
   return (
     <HomeStack.Navigator
-        initialRouteName='WorkoutOptions'
-        screenOptions={{
-            headerStyle: {
-                backgroundColor: '#5637DD'
-            },
-            headerTintColor: '#fff'
-        }}
+      initialRouteName="WorkoutOptions"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#5637DD",
+        },
+        headerTintColor: "#fff",
+      }}
     >
-        <HomeStack.Screen
-            name='WorkoutOptions'
-            component={RenderWorkoutOptions}
-            options={{ title: 'Workout Options' }}
-        />
-        <HomeStack.Screen
-            name='FullBody'
-            component={FullBodyOptions}
-            options={{ title: 'Full Body Options' }}
-        />
-        <HomeStack.Screen
-            name='UpperBody'
-            component={UpperBodyOptions}
-            options={{ title: 'Upper Body Options' }}
-        />
-        <HomeStack.Screen
-            name='LowerBody'
-            component={LowerBodyOptions}
-            options={{ title: 'Lower Body Options' }}
-        />
-        <HomeStack.Screen
-            name='ExerciseInfo'
-            component={ExerciseInfoScreen}
-            options={({ route }) => ({
-                title: route.params.exercise.name
-            })}
-        />
+      <HomeStack.Screen
+        name="WorkoutOptions"
+        component={RenderWorkoutOptions}
+        options={{ title: "Workout Options" }}
+      />
+      <HomeStack.Screen
+        name="FullBody"
+        component={FullBodyOptions}
+        options={{ title: "Full Body Options" }}
+      />
+      <HomeStack.Screen
+        name="UpperBody"
+        component={UpperBodyOptions}
+        options={{ title: "Upper Body Options" }}
+      />
+      <HomeStack.Screen
+        name="LowerBody"
+        component={LowerBodyOptions}
+        options={{ title: "Lower Body Options" }}
+      />
+      <HomeStack.Screen
+        name="ExerciseInfo"
+        component={ExerciseInfoScreen}
+        options={({ route }) => ({
+          title: route.params.exercise.name,
+        })}
+      />
     </HomeStack.Navigator>
-);
+  );
 };
 const DirectoryNavigator = () => {
   const Stack = createStackNavigator();
@@ -104,6 +107,12 @@ const ExercisesNavigator = () => {
 };
 
 const Main = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchExercises());
+  }, [dispatch]);
+
   return (
     <View
       style={{
@@ -111,7 +120,6 @@ const Main = () => {
         paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
       }}
     >
-      
       <ExercisesNavigator />
     </View>
   );
