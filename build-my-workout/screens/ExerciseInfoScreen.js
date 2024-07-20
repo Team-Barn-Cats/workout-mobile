@@ -4,18 +4,21 @@
 
 import RenderExercise from "../features/exercises/RenderExercise";
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { toggleWorkout } from "../features/workouts/workoutsSlice";
+import { useSelector } from "react-redux";
 
 const ExerciseInfoScreen = ({ route }) => {
   const { exercise } = route.params;
 
-  const [add, setAdd] = useState(false);
+  const workouts = useSelector((state) => state.workouts);
+  const dispatch = useDispatch();
 
   return (
     <RenderExercise
       exercise={exercise}
-      isAdded={add}
-      markAdded={() => setAdd(true)}
+      isWorkout={workouts.includes(exercise.id)}
+      markWorkout={() => dispatch(toggleWorkout(exercise.id))}
     />
   );
 };

@@ -37,15 +37,15 @@ const RenderExercise = (props) => {
         </Card.Image>
         <Text style={{ margin: 20 }}>{exercise.description}</Text>
         <Icon
-          name={props.isAdded ? "check" : "plus"}
+          name={props.isWorkout ? "check" : "plus"}
           type="font-awesome"
           color="#f50"
           raised
           reverse
           onPress={() =>
-            props.isAdded
+            props.isWorkout
               ? console.log("Already added")
-              : props.markAdded()
+              : props.markWorkout()
           }
         />
       </Card>

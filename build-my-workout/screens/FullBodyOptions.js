@@ -10,10 +10,9 @@ import { baseUrl } from "../shared/baseUrl";
 import Loading from "../components/LoadingComponent";
 import { View, Text } from "react-native";
 
-
 const FullBodyOptions = ({ navigation }) => {
   const exercises = useSelector((state) => state.exercises);
-  const [add, setAdd] = useState(false);
+  const [workout, setWorkout] = useState(false);
 
   if (exercises.isLoading) {
     return <Loading />;
@@ -28,9 +27,8 @@ const FullBodyOptions = ({ navigation }) => {
   }
 
   const renderExerciseItem = ({ item: exercise }) => {
-  
     return (
-/*       <ListItem
+      <ListItem
         onPress={() => navigation.navigate("ExerciseInfo", { exercise })}
       >
         <Icon
@@ -44,15 +42,7 @@ const FullBodyOptions = ({ navigation }) => {
         <ListItem.Content>
           <ListItem.Title>{exercise.name}</ListItem.Title>
         </ListItem.Content>
-      </ListItem> */
-      <Tile
-                title={exercise.name}
-                caption={exercise.description}
-                featured
-                onPress={() =>
-                    navigation.navigate('ExerciseInfo', { exercise })
-                }
-            />
+      </ListItem>
     );
   };
   return (
